@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<style>
+    .ti_pic-class,
+    .ti_pic-class img {
+        float: none;
+        display: inline-block;
+        height: 200px;
+        width: 142px;
+        object-fit: contain;
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+
+
+    }
+
+    .ti_pic-class img:hover {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.2);
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .choseus-section *{
+            font-size: 24px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<section class="choseus-section spad">
+    <div class="container col-sm-10">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title fade" >
+                    <h2 style="font-size: 32px;">About Us</h2>
+                </div>
+            </div>
+        </div>
+<div class="cd-text">
+    <div class="cd-single-item">
+<div class="col-lg-13">
+    <h12 style="color: ghostwhite" class = "fade">NITK Racing is a dynamic team formed in 2006, composed of talented students across the campus here at NITK - one of the eminent institutes in our country, with a passion for race cars and a common goal to emerge as the best racing team.
+    Our team designs and develops race cars which can be rolled out on the racetrack , as we hand pick the best students and provide them the exposure to the world that revolves around the racetrack right from the beginning. It took us 3500 man-hours to build our last race car.
+    The significant work done by the team includes, making the design lighter and stronger, ready for the speedway. The team works under the expert guidance of our mentors including our faculty members and the Centre for System Design (CSD-NITK).
+      <br><br></h12>
+    <h12 style="color: ghostwhite" class = "fade">
+     Our various achievements include participation and qualification in different technical rounds and events as a part of various major racing events/tournaments held in different parts of our country.
+                                 <br><br><br></h12></div></div>
+</div>
+<div style="text-align:center;">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title fade" >
+                <h2 style="font-size: 32px;">Our Achievements</h2>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="cd-text">
+                <div class="cd-single-item">
+                    <h12 style="color: red" class = "fade">
+    - The team represented India at the FSAE competition held in Michigan in 2011 and in the following year it was placed in the top 10 in 2 of 7 events at FS-Hungary.<br><br>
+    - We have built India's lightest FS car and we were declared the best Asian team.<br><br>
+    - Won the “Design Innovation” award at SUPRA SAE INDIA 2014 (Chennai) for  carbon fibre air-intake.<br><br>
+    - Participated in FS China , XianGyang in 2014.<br><br>
+    - Participated at the Formula Student India 2016 and has landed up 15th position overall with 1st rank in Real-Case scenario, 5th in Cost Report and 7th in Business Plan.
+                    </h12>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+<br><br>
+</section>
+<!-- ChoseUs Section End -->
+
+<!-- About US Section Begin -->
+<section class="aboutus-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 p-0 ">
+                <div class="about-video set-bg">
+                    <iframe width="920" height="640" src="https://www.youtube.com/embed/3OvBsaO8wPc?autoplay=1&rel=0"
+                            frameborder="0"
+                            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0">
+                <div class="about-text">
+                    <div class="section-title">
+                        <span>About Us</span>
+                        <h2>What are we</h2>
+                        <br>
+                        {% for about_us_content in about_us_content_list %}
+                            <p class="fade">{{ about_us_content.text_next_to_video }}</p>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% if blog_list.count %}
+    <section class="testimonial-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>BLOG POSTS</h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8 p-0">
+                            {% for blog in blog_list %}
+                            <div class="blog-item fade">
+
+                                    <div class="bi-text">
+                                        <h5>{{ blog.title }}</h5>
+                                        <ul>
+                                            <li>{{ blog.author }}</li>
+                                            <li>{{ blog.updated_on }}</li>
+                                        </ul>
+                                        <p>{{ blog.content }}</p>
+                                    </div>
+                                    <br>
+
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
+<section class="pricing-section service-pricing spad">
+    <div class="container col-sm-10">
+
+        <div class="row fade"><div class="col-lg-1"></div>
+                <div class="col-lg-6">
+                    <div class="team-title">
+                        <div class="section-title">
+                             <span>Our Newsletter</span>
+                    <h2>PITSTOP Editions</h2>
+                        </div>
+
+                    </div>
+
+                </div>
+            <div class="col-lg-4">
+                <div class="leave-comment">
+
+                        <form action="#" method="POST" class="fade">
+                            <input type="hidden" name="csrfmiddlewaretoken" value="5UY441d1PVWtmCsyjrTPAoYIniiy1D5xKgyz8jveJUZRiwaQrDrO6dQVjfVF9qJA">
+                            	{% csrf_token %}
+                           <input name="mailid" type="text" placeholder="Email*" required="">
+                            <button class="primary-btn btn-normal" type="submit">Subscribe</button>
+                        </form></div><br><br><br><br><br><br>
+            </div>
+            </div>
+
+            <div class="ps_slider owl-carousel carousel-start">
+                {% for document in document_list %}
+                    <div class="col-lg-14 text-center">
+                        <div class="ti_pic-class"><a href="{{ document.link }}">
+                            <img src="{{ document.cover.url }}" alt=""></a>
+                        </div>
+                        <div class="ti_text"><h5>{{ document.edition }}</h5></div>
+                    </div>
+            {% endfor %}
+        </div>
+
+        </div>
+    </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        var selected_item = document.getElementById('nav-bar-about');
+        selected_item.classList.add('active');
+        
+        $(document).ready(function(){
+            $('.carousel-start').owlCarousel();
+            $('.carousel-start').trigger('to.owl.carousel', 1);
+        });
+    </script>
+
+{% endblock %}

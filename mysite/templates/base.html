@@ -1,0 +1,300 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+
+        <!-- CSS Styles -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="{% static 'css/barfiller.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+        <style>
+            html{
+                overflow-x: hidden;
+            }
+            #nav-bar{
+                background-color: black;
+            }
+            .banner-text{
+                position:relative; 
+                top:-50vh;
+                left: 60vw;
+            }
+            .owl-dot{
+                z-index: auto;
+                color: blue;
+            }
+            #nav-bar-subsystem{
+                z-index:2000;
+            }
+            .nav-menu ul li a{
+                font-size : 18px;
+            }
+            .footer-section *{
+                color:white;
+            }
+            .slide-in{
+                position: relative;
+                animation-name: slide-in;
+                animation-duration: 1s;
+            }
+            .margin-adder{
+                height:10vh;
+                width:100vw;
+            }
+            @keyframes slide-in{
+                0%{
+                    top:40px;
+                }
+                25%{
+                    top:20px;
+                }
+                50%{
+                    top:10px;
+                }
+                100%{
+                    top:0px;
+                }
+            }
+
+            @media only screen and (max-width: 1000px) {
+                .banner-text{
+                    top:-20vh;
+                    left: 45vw;
+                }
+                .navbar-brand img, #footer-logo{
+                    width: 500px;
+                }
+                .footer-info .gt-text p a{
+                    font-size: 16px;
+                }
+                .mobile-menu ul li a{
+                    font-size:24px;
+                }
+            }
+
+        </style>
+
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body style="background-color: black;">
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
+
+        <div class="offcanvas-menu-overlay"></div>
+            <div class="offcanvas-menu-wrapper">
+                <div class="canvas-close" style="width: 50px; height: 50px;">
+                    <i class="fa fa-close" style="font-size: 48px;"></i>
+                </div>
+
+                <nav class="canvas-menu mobile-menu">
+                    <ul>
+                        <li><a href="../index" style="font-size: 24px;">Home</a></li>
+                        <li><a href="../about" style="font-size: 24px;">About Us</a></li>
+                        <li><a href="../team" style="font-size: 24px;">Our Team</a></li>
+                        <li class="active"><a href="#" style="font-size: 24px;">Subsystems</a>
+                            <ul class="dropdown">
+                                <li><a href="../aerodynamics" style="font-size: 20px;">Aerodynamics</a></li>
+                                <li><a href="../vehicledynamics" style="font-size: 20px;">Vehicle Dynamics</a></li>
+                                <li><a href="../powertrain" style="font-size: 20px;">Powertrain</a></li>
+                                <li><a href="../electronics" style="font-size: 20px;">Electronics</a></li>
+                                <li><a href="../media" style="font-size: 20px;">Media</a></li>
+                                <li><a href="../marketing" style="font-size: 20px;">Marketing</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../gallery" style="font-size: 24px;">Gallery</a></li>
+                        <li><a href="../contact" style="font-size: 24px;">Contact</a></li>
+                    </ul>
+
+                </nav>
+                <div id="mobile-menu-wrap"></div>
+                <div class="canvas-social">
+                    <a href="https://www.facebook.com/nitkracing"><i class="fa fa-facebook" style="font-size: 36px;"></i></a>
+                    <a href="https://www.linkedin.com/company/nitk-racing"><i class="fa fa-linkedin" style="font-size: 36px;"></i></a>
+                    <a href="https://www.youtube.com/channel/UCboCcz11TdW0tMa_5n-eiyA"><i class="fa fa-youtube-play" style="font-size: 36px;"></i></a>
+                    <a href="https://www.instagram.com/nitkracing/"><i class="fa fa-instagram" style="font-size: 36px;"></i></a>
+                </div>
+            </div>
+
+        <div class="container-fluid" id="nav-bar">
+            <div class="row" style="display:flex; align-items: center;">
+                <div class="col-lg-3">
+                    <!--div class="logo"-->
+                        <a class="navbar-brand" href="{% url 'mysite:index' %}">
+                            <img src="{% static 'img/logo.png' %}" alt="">
+                        </a>
+                    <!---/div-->
+                </div>
+                <div class="col-lg-6">
+                    <nav class="nav-menu">
+                        <ul>
+                            <li id="nav-bar-home"><a href="{% url 'mysite:index' %}">Home</a></li>
+                            <li id="nav-bar-about"><a href="{% url 'mysite:about' %}">About Us</a></li>
+                            <li id="nav-bar-team"><a href="{% url 'mysite:team' %}">Our Team</a></li>
+                            <li id="nav-bar-subsystem"><a href="#">Subsystems</a>
+                                <ul class="dropdown">
+                                    <li><a href="{% url 'mysite:aerodynamics' %}">Aerodynamics</a></li>
+                                    <li><a href="{% url 'mysite:electronics' %}">Electronics</a></li>
+                                    <li><a href="{% url 'mysite:vehicledynamics' %}">Vehicle Dynamics</a></li>
+                                    <li><a href="{% url 'mysite:powertrain' %}">Powertrain</a></li>
+                                    <li><a href="{% url 'mysite:marketing' %}">Marketing</a></li>
+                                    <li><a href="{% url 'mysite:media' %}">Media</a></li>
+                                </ul>
+                            </li>
+                            <li id="nav-bar-gallery"><a href="{% url 'mysite:gallery' %}">Gallery</a></li>
+                            <li id="nav-bar-contact"><a href="{% url 'mysite:contact' %}">Contact</a></li>
+                            <li><a href="{% url 'nitkracing_ev:index' %}">EV Team</a></li>
+                        </ul>
+
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="top-option">
+                        <div class="to-social">
+                            <a href="https://www.facebook.com/nitkracing" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.linkedin.com/company/nitk-racing" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://www.youtube.com/channel/UCQ2hGaTidBqanu5chivRTsQ" target="_blank"><i
+                                    class="fa fa-youtube-play"></i></a>
+                            <a href="https://www.instagram.com/nitkracing/" target="_blank"><i class="fa fa-instagram"></i></a>
+                            <a href="https://twitter.com/nitkracing?lang=en" target="_blank"><i class="fa fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas-open" style="z-index: 30; width: 50px; height: 50px;">
+                <i class="fa fa-bars" style="font-size:48px;"></i>
+            </div>
+        </div>
+
+        <div id="center-banner" style="z-index:-2000;">
+            <div class="owl-carousel owl-banner">
+                {% for banner in banners_list%}
+                    <div class="banner-img" id="banner-{{forloop.counter}}" style="width:100vw;" data-id="{{forloop.counter}}">
+                        <img src="{{ banner.bg_img.url }}" style="width:100vw; height:100%;">
+                        <div class="banner-text" id="banner-text-{{forloop.counter}}" style="color:white;">
+                            <span class='slide-in' style="color:white;">{{ banner.small_text }}</span>
+                            <h1 class='slide-in' style="color:white;">{{ banner.large_text }}</h1>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% block body %}
+        {% endblock %}
+
+        <!-- Get In Touch Section Begin -->
+        <section class="footer-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 footer-info-logo">
+                        <div class="fs-about">
+                            <div class="logo">
+                                <a href="../">
+                                    <img id="footer-logo" src="{% static 'img/logo.png' %}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 footer-info">
+                        <div class="gt-text">
+                            <a target="__blank" href="https://www.google.com/maps/dir//National+Institute+of+Technology,+Karnataka/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3ba35211b768ac8f:0x6b1144ac2d5dadf3?sa=X&ved=2ahUKEwiJx4SN1NTrAhXF8XMBHXhYADoQ9RcwGHoECBAQBA">
+                            <i class="fa fa-map-marker"></i></a>
+                            <p><a target="__blank" href="https://www.google.com/maps/dir//National+Institute+of+Technology,+Karnataka/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3ba35211b768ac8f:0x6b1144ac2d5dadf3?sa=X&ved=2ahUKEwiJx4SN1NTrAhXF8XMBHXhYADoQ9RcwGHoECBAQBA">
+                                National Institute of Technology<br> NH 66, Srinivasnagar, Surathkal<br> Mangalore
+                                Karnataka <br>
+                                575025</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 footer-info">
+                        <div class="gt-text">
+                            <a href="tel:7259159980"><i class="fa fa-mobile"></i></a>
+                            <ul>
+                                <li><a href="tel:7259159980">7259159980</a></li>
+                                <li><a href="tel:7259159980">9113514266</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 footer-info">
+                        <div class="gt-text email">
+                            <a href="mailto:captain.nitkracing@gmail.com"><i class="fa fa-envelope"></i></a>
+                            <p><a href="mailto:captain.nitkracing@gmail.com">captain.nitkracing@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <div class="copyright-text">
+                        <p>Made with ♥ by <strong>Team NITKRacing</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    <!-- Js Plugins -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/jquery.barfiller.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <script>
+        var owl = $('.owl-carousel');
+
+        $(document).ready(function(){
+            owl.owlCarousel({
+                autoplay:true,
+                autoplayTimeout:5000,
+                dots : true, 
+                autoWidth:true,
+                items:1,
+                onTranslated: function(){
+                    var id=$('.owl-item.active .banner-img').data('id');
+                    $(".banner-text").hide()
+                    $("#banner-text-"+id).hide().fadeIn(2000, function() {})
+                },
+            });
+            $(".banner-text").hide()
+            $("#banner-text-1").hide().fadeIn(2000, function() {})
+        });
+        
+        function change_class(x) {
+            if (x.matches) { // If media query matches
+                var footer_elements = document.getElementsByClassName("footer-info");
+                // for in loop not working, change if possible
+                footer_elements[0].classList.remove("col-md-3")
+                footer_elements[1].classList.remove("col-md-3")
+                footer_elements[2].classList.remove("col-md-3")
+                footer_elements[0].classList.add("col-md-4")
+                footer_elements[1].classList.add("col-md-4")
+                footer_elements[2].classList.add("col-md-4")
+
+                var footer_logo = document.getElementsByClassName("footer-info-logo")[0]
+                footer_logo.classList.remove("col-md-3")
+                footer_logo.classList.remove("col-md-3")
+            }
+        }
+
+        var x = window.matchMedia("(max-width: 1000px)")
+        change_class(x) // Call listener function at run time
+        x.addListener(change_class) // Attach listener function on state changes
+    </script>
+    {% block script %}
+    {% endblock %}
+
+</html>

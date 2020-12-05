@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+    {% include 'subsystems_partial.html' %}
+
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        var selected_item = document.getElementById('nav-bar-subsystem');
+        selected_item.classList.add('active');
+    </script>
+
+{% endblock %}
+

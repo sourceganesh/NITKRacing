@@ -1,0 +1,107 @@
+
+{% if blog_list.count %}
+<section class="blog-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 p-0">
+                <div class="blog-item">
+                    {% for blog in blog_list %}
+                        <div class="bi-text">
+                            <h5>{{ blog.title }}</h5>
+                            <ul>
+                                <li>{{ blog.author }}</li>
+                                <li>{{ blog.updated_on }}</li>
+                            </ul>
+                            <p>{{ blog.content }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %} 
+
+{% if document_list.count %}
+<!-- 3d-->
+<section class="gallery-section">
+<div class="section-title">
+    <span style="font-size: 35px ;">A glimpse under the hood</span>
+    <h2 style="font-size: 33px;">3D MODELS</h2>
+</div>
+<div class="gallery">
+    <div class="grid-sizer"></div>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    {% for document in document_list %}
+
+        <model-viewer class="gs-item grid-wide" src="{{ document.document.url }}" alt="{{ document.description }} "
+                      auto-rotate camera-controls>
+        </model-viewer>
+
+    {% endfor %}
+
+</div>
+</section>
+{% endif %}
+
+<!-- Teaam -->
+<section class="team-section spad">
+<div class="container col-sm-11">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="team-title">
+                <div class="section-title">
+
+                    <h2>MEET THE SQUAD</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="ts-slider owl-carousel">
+
+            {% for member in full_member_list %}
+                <div class="col-lg-4">
+                    <div class="ts-item set-bg" data-setbg="{{ member.member_img.url }}">
+                        <div class="ts_text">
+                            <h4>{{ member.member_name }}</h4>
+                            <span>{{ member.post }}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+</section>
+<!-- substem select-->
+{% include 'our_subsystems.html' %}
+<!-- sponsors slider-->
+<section class="testimonial-section spad">
+<div class="container col-sm-11">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-title">
+                <span>meet the support squad</span>
+                <h2>Our sponsors</h2>
+            </div>
+        </div>
+    </div>
+    <div class="ts_slider owl-carousel">
+        {% for sponsor in sponsors_list %}
+            <div class="ts_item">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="ti_pic"><a href="{{ sponsor.sponsor_link }}">
+                            <img src="{{ sponsor.img.url }}" alt=""></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</section>

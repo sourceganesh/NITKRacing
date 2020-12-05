@@ -1,0 +1,2 @@
+fish=None
+bait=None

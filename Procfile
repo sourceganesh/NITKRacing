@@ -1,0 +1,1 @@
+web: gunicorn nitk_racing.wsgi --log-file -
